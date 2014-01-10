@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0CC0E9BE-75BB-4E69-81BF-1F2105D1B372</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ALRefreshTable</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DB5B9E87-111C-48E1-A503-4F7641029863</key>
+		<string>https://github.com/abbylin/ALRefreshTable.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ALRefreshTable.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DB5B9E87-111C-48E1-A503-4F7641029863</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/abbylin/ALRefreshTable.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DB5B9E87-111C-48E1-A503-4F7641029863</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DB5B9E87-111C-48E1-A503-4F7641029863</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ALRefreshTable</string>
+		</dict>
+	</array>
+</dict>
+</plist>

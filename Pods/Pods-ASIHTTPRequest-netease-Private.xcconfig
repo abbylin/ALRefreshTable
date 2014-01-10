@@ -1,0 +1,5 @@
+#include "Pods-ASIHTTPRequest-netease.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/ASIHTTPRequest-netease" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/ASIHTTPRequest-netease" "${PODS_ROOT}/Headers/Reachability" "${PODS_ROOT}/Headers/RegexKitLite" "${PODS_ROOT}/Headers/SDWebImage" ${PODS_ASIHTTPREQUEST_NETEASE_HEADER_SEARCH_PATHS}
+OTHER_LDFLAGS = -ObjC ${PODS_ASIHTTPREQUEST_NETEASE_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}
