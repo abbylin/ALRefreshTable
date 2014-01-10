@@ -1,0 +1,30 @@
+PODS:
+  - ASIHTTPRequest-netease (1.8.1):
+    - ASIHTTPRequest-netease/ASIWebPageRequest
+    - ASIHTTPRequest-netease/CloudFiles
+    - ASIHTTPRequest-netease/S3
+    - Reachability
+  - ASIHTTPRequest-netease/ASIWebPageRequest (1.8.1):
+    - Reachability
+  - ASIHTTPRequest-netease/CloudFiles (1.8.1):
+    - Reachability
+  - ASIHTTPRequest-netease/S3 (1.8.1):
+    - Reachability
+  - Reachability (3.1.1)
+  - RegexKitLite (4.0)
+  - SDWebImage (3.5.2):
+    - SDWebImage/Core
+  - SDWebImage/Core (3.5.2)
+
+DEPENDENCIES:
+  - ASIHTTPRequest-netease
+  - RegexKitLite
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  ASIHTTPRequest-netease: 1de3aab65f39144c0a7325a2460b65dfbd1fe2c5
+  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
+  RegexKitLite: f7af7b4d2b675cd2ec9a4abab6aad6ae1f6499c0
+  SDWebImage: fe7ce01ae4e0a884d168f59c9dd82d35baf8429e
+
+COCOAPODS: 0.28.0
