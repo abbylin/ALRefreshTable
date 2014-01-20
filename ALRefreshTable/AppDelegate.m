@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TestStockController.h"
 
 @implementation AppDelegate
 
@@ -15,6 +16,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    TestStockController *VC = [[TestStockController alloc] init];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:VC];
+    navi.navigationBarHidden = YES;
+    self.window.rootViewController = navi;
+    
     [self.window makeKeyAndVisible];
     
     //test
