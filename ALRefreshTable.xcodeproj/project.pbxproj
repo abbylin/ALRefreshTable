@@ -20,9 +20,16 @@
 		EA07185D187FF8E7004DC993 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA071845187FF8E7004DC993 /* UIKit.framework */; };
 		EA071865187FF8E7004DC993 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA071863187FF8E7004DC993 /* InfoPlist.strings */; };
 		EA071867187FF8E7004DC993 /* ALRefreshTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA071866187FF8E7004DC993 /* ALRefreshTableTests.m */; };
+		EA0B909318AB4CB300CC7026 /* ALRefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0B909218AB4CB300CC7026 /* ALRefreshTableHeaderView.m */; };
+		EA0B909718AB54D700CC7026 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0B909618AB54D700CC7026 /* grayArrow@2x.png */; };
+		EA29318D18AA178A00C0AEBB /* ALTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA29318C18AA178A00C0AEBB /* ALTestTableViewController.m */; };
 		EA887E081883C18900675C24 /* TestStockController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA887E071883C18900675C24 /* TestStockController.m */; };
 		EA887E201883D40A00675C24 /* ALStockKLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA887E1F1883D40A00675C24 /* ALStockKLineView.m */; };
 		EA887E241883E5A100675C24 /* ALStockSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = EA887E231883E5A100675C24 /* ALStockSeries.m */; };
+		EAA70A2F18A8B2360054EFC1 /* ALMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA70A2E18A8B2360054EFC1 /* ALMainController.m */; };
+		EAA70A3918A8C5B80054EFC1 /* EGORefreshTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA70A3418A8C5B80054EFC1 /* EGORefreshTableFooterView.m */; };
+		EAA70A3A18A8C5B80054EFC1 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA70A3618A8C5B80054EFC1 /* EGORefreshTableHeaderView.m */; };
+		EAA70A3B18A8C5B80054EFC1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA70A3818A8C5B80054EFC1 /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,12 +61,27 @@
 		EA071862187FF8E7004DC993 /* ALRefreshTableTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ALRefreshTableTests-Info.plist"; sourceTree = "<group>"; };
 		EA071864187FF8E7004DC993 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA071866187FF8E7004DC993 /* ALRefreshTableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALRefreshTableTests.m; sourceTree = "<group>"; };
+		EA0B909118AB4CB300CC7026 /* ALRefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRefreshTableHeaderView.h; sourceTree = "<group>"; };
+		EA0B909218AB4CB300CC7026 /* ALRefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRefreshTableHeaderView.m; sourceTree = "<group>"; };
+		EA0B909618AB54D700CC7026 /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
+		EA0B909818AB57D900CC7026 /* ALRefreshTableDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALRefreshTableDelegate.h; sourceTree = "<group>"; };
+		EA29318B18AA178A00C0AEBB /* ALTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTestTableViewController.h; sourceTree = "<group>"; };
+		EA29318C18AA178A00C0AEBB /* ALTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTestTableViewController.m; sourceTree = "<group>"; };
 		EA887E061883C18900675C24 /* TestStockController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestStockController.h; sourceTree = "<group>"; };
 		EA887E071883C18900675C24 /* TestStockController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestStockController.m; sourceTree = "<group>"; };
 		EA887E1E1883D40A00675C24 /* ALStockKLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALStockKLineView.h; sourceTree = "<group>"; };
 		EA887E1F1883D40A00675C24 /* ALStockKLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStockKLineView.m; sourceTree = "<group>"; };
 		EA887E221883E5A100675C24 /* ALStockSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALStockSeries.h; sourceTree = "<group>"; };
 		EA887E231883E5A100675C24 /* ALStockSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStockSeries.m; sourceTree = "<group>"; };
+		EAA70A2D18A8B2360054EFC1 /* ALMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALMainController.h; sourceTree = "<group>"; };
+		EAA70A2E18A8B2360054EFC1 /* ALMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALMainController.m; sourceTree = "<group>"; };
+		EAA70A3318A8C5B80054EFC1 /* EGORefreshTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableFooterView.h; sourceTree = "<group>"; };
+		EAA70A3418A8C5B80054EFC1 /* EGORefreshTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableFooterView.m; sourceTree = "<group>"; };
+		EAA70A3518A8C5B80054EFC1 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		EAA70A3618A8C5B80054EFC1 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		EAA70A3718A8C5B80054EFC1 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		EAA70A3818A8C5B80054EFC1 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		EAA70A3C18A8D3CE0054EFC1 /* EGOViewCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOViewCommon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +151,10 @@
 				EA071848187FF8E7004DC993 /* Supporting Files */,
 				EA887E061883C18900675C24 /* TestStockController.h */,
 				EA887E071883C18900675C24 /* TestStockController.m */,
+				EA29318B18AA178A00C0AEBB /* ALTestTableViewController.h */,
+				EA29318C18AA178A00C0AEBB /* ALTestTableViewController.m */,
+				EAA70A2D18A8B2360054EFC1 /* ALMainController.h */,
+				EAA70A2E18A8B2360054EFC1 /* ALMainController.m */,
 			);
 			path = ALRefreshTable;
 			sourceTree = "<group>";
@@ -136,6 +162,7 @@
 		EA071848187FF8E7004DC993 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA0B909418AB54D700CC7026 /* sources */,
 				EA071849187FF8E7004DC993 /* ALRefreshTable-Info.plist */,
 				EA07184A187FF8E7004DC993 /* InfoPlist.strings */,
 				EA07184D187FF8E7004DC993 /* main.m */,
@@ -162,9 +189,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EA0B909418AB54D700CC7026 /* sources */ = {
+			isa = PBXGroup;
+			children = (
+				EA0B909518AB54D700CC7026 /* images */,
+			);
+			path = sources;
+			sourceTree = "<group>";
+		};
+		EA0B909518AB54D700CC7026 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				EA0B909618AB54D700CC7026 /* grayArrow@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		EA887E1C1883D3F100675C24 /* class */ = {
 			isa = PBXGroup;
 			children = (
+				EAA70A3018A8C5B80054EFC1 /* controllers */,
 				EA887E211883E57F00675C24 /* entity */,
 				EA887E1D1883D3F100675C24 /* views */,
 			);
@@ -187,6 +231,39 @@
 				EA887E231883E5A100675C24 /* ALStockSeries.m */,
 			);
 			path = entity;
+			sourceTree = "<group>";
+		};
+		EAA70A3018A8C5B80054EFC1 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EAA70A3118A8C5B80054EFC1 /* baseControllers */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		EAA70A3118A8C5B80054EFC1 /* baseControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EAA70A3218A8C5B80054EFC1 /* TableViewControllers */,
+			);
+			path = baseControllers;
+			sourceTree = "<group>";
+		};
+		EAA70A3218A8C5B80054EFC1 /* TableViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EAA70A3C18A8D3CE0054EFC1 /* EGOViewCommon.h */,
+				EAA70A3318A8C5B80054EFC1 /* EGORefreshTableFooterView.h */,
+				EAA70A3418A8C5B80054EFC1 /* EGORefreshTableFooterView.m */,
+				EAA70A3518A8C5B80054EFC1 /* EGORefreshTableHeaderView.h */,
+				EAA70A3618A8C5B80054EFC1 /* EGORefreshTableHeaderView.m */,
+				EAA70A3718A8C5B80054EFC1 /* RootViewController.h */,
+				EAA70A3818A8C5B80054EFC1 /* RootViewController.m */,
+				EA0B909118AB4CB300CC7026 /* ALRefreshTableHeaderView.h */,
+				EA0B909218AB4CB300CC7026 /* ALRefreshTableHeaderView.m */,
+				EA0B909818AB57D900CC7026 /* ALRefreshTableDelegate.h */,
+			);
+			path = TableViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA0B909718AB54D700CC7026 /* grayArrow@2x.png in Resources */,
 				EA07184C187FF8E7004DC993 /* InfoPlist.strings in Resources */,
 				EA071854187FF8E7004DC993 /* Images.xcassets in Resources */,
 			);
@@ -319,11 +397,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA29318D18AA178A00C0AEBB /* ALTestTableViewController.m in Sources */,
 				EA887E201883D40A00675C24 /* ALStockKLineView.m in Sources */,
 				EA071852187FF8E7004DC993 /* AppDelegate.m in Sources */,
+				EAA70A3918A8C5B80054EFC1 /* EGORefreshTableFooterView.m in Sources */,
+				EA0B909318AB4CB300CC7026 /* ALRefreshTableHeaderView.m in Sources */,
 				EA07184E187FF8E7004DC993 /* main.m in Sources */,
+				EAA70A3A18A8C5B80054EFC1 /* EGORefreshTableHeaderView.m in Sources */,
+				EAA70A3B18A8C5B80054EFC1 /* RootViewController.m in Sources */,
 				EA887E241883E5A100675C24 /* ALStockSeries.m in Sources */,
 				EA887E081883C18900675C24 /* TestStockController.m in Sources */,
+				EAA70A2F18A8B2360054EFC1 /* ALMainController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
