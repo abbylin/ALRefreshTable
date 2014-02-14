@@ -30,6 +30,7 @@
 		EAA70A3918A8C5B80054EFC1 /* EGORefreshTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA70A3418A8C5B80054EFC1 /* EGORefreshTableFooterView.m */; };
 		EAA70A3A18A8C5B80054EFC1 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA70A3618A8C5B80054EFC1 /* EGORefreshTableHeaderView.m */; };
 		EAA70A3B18A8C5B80054EFC1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA70A3818A8C5B80054EFC1 /* RootViewController.m */; };
+		EAE2BC2B18ACA9780016D4E4 /* ALRootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE2BC2A18ACA9780016D4E4 /* ALRootTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		EAA70A3718A8C5B80054EFC1 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		EAA70A3818A8C5B80054EFC1 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		EAA70A3C18A8D3CE0054EFC1 /* EGOViewCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOViewCommon.h; sourceTree = "<group>"; };
+		EAE2BC2918ACA9780016D4E4 /* ALRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRootTableViewController.h; sourceTree = "<group>"; };
+		EAE2BC2A18ACA9780016D4E4 /* ALRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRootTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +265,8 @@
 				EA0B909118AB4CB300CC7026 /* ALRefreshTableHeaderView.h */,
 				EA0B909218AB4CB300CC7026 /* ALRefreshTableHeaderView.m */,
 				EA0B909818AB57D900CC7026 /* ALRefreshTableDelegate.h */,
+				EAE2BC2918ACA9780016D4E4 /* ALRootTableViewController.h */,
+				EAE2BC2A18ACA9780016D4E4 /* ALRootTableViewController.m */,
 			);
 			path = TableViewControllers;
 			sourceTree = "<group>";
@@ -399,6 +404,7 @@
 			files = (
 				EA29318D18AA178A00C0AEBB /* ALTestTableViewController.m in Sources */,
 				EA887E201883D40A00675C24 /* ALStockKLineView.m in Sources */,
+				EAE2BC2B18ACA9780016D4E4 /* ALRootTableViewController.m in Sources */,
 				EA071852187FF8E7004DC993 /* AppDelegate.m in Sources */,
 				EAA70A3918A8C5B80054EFC1 /* EGORefreshTableFooterView.m in Sources */,
 				EA0B909318AB4CB300CC7026 /* ALRefreshTableHeaderView.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "ALTestTableViewController.h"
 #import "ASIHttpRequest.h"
+#import "ALRefreshTableHeaderView.h"
 
 @interface ALTestTableViewController ()
 
@@ -22,7 +23,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
-    //[self createHeaderView];
+    [self addRefreshHeader];
 
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"testCell"];
     
@@ -59,4 +60,19 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     NSLog(@"scrollView.contentOffset.y= %f", scrollView.contentOffset.y);
 }
+
+
+#pragma mark -
+#pragma mark - testcode
+- (void)beginToReloadData:(ALRefreshPos)aRefreshPos{
+    [super beginToReloadData:aRefreshPos];
+    [self performSelector:@selector(testFinish) withObject:nil afterDelay:0.5];
+}
+
+- (void)testFinish{
+    [self finishReloadingDataComplete:^{
+        
+    }];
+}
+
 @end

@@ -13,7 +13,11 @@
 @interface ALRefreshTableHeaderView : UIView
 
 @property (nonatomic, weak) id<ALRefreshTableDelegate> delegate;
+@property (nonatomic, assign) BOOL isRefreshing;
+@property (nonatomic, assign) UIEdgeInsets originalInset;
 
-- (id)initWithFrame:(CGRect)frame inScrollView:(UIScrollView*)scrollView;
+- (id)initInScrollView:(UIScrollView*)scrollView;
+
+- (void)ALRefreshScrollViewDataSourceDidFinishedLoading:(UIScrollView *)scrollView andComplete:(void(^)(void))completeBlock;
 
 @end

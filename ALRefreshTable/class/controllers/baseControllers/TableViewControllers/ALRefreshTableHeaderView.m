@@ -18,30 +18,43 @@
     ALRefreshState _state;
 }
 
+@property (nonatomic, assign) UIScrollView *scrollView;
+
 @end
 
 @implementation ALRefreshTableHeaderView
 
-- (id)initWithFrame:(CGRect)frame inScrollView:(UIScrollView *)scrollView{
-    self = [super initWithFrame:frame];
+- (id)initInScrollView:(UIScrollView*)scrollView{
+    self = [super initWithFrame:CGRectMake(0, -(REFRESH_MAX_HEIGHT + scrollView.contentInset.top), scrollView.frame.size.width, REFRESH_MAX_HEIGHT)];
     if (self) {
-        [self initTableHeaderView];
+        self.scrollView = scrollView;
+        self.originalInset = scrollView.contentInset;
         
+        [scrollView addSubview:self];
         [scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+        
+        [self initTableHeaderView];
     }
     return self;
+}
+
+- (void)dealloc{
+    [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
+    self.scrollView = nil;
 }
 
 - (void)willMoveToSuperview:(UIView *)superview
 {
     [super willMoveToSuperview:superview];
     
-    if ([self.superview isKindOfClass:[UIScrollView class]]) {
-        [self.superview removeObserver:self forKeyPath:@"contentOffset"];
+    if (!superview) {
+        [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
+        self.scrollView = nil;
     }
 }
 
 - (void)initTableHeaderView{
+    
     self.backgroundColor = [UIColor colorWithRed:226.0/255.0 green:231.0/255.0 blue:237.0/255.0 alpha:1.0];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, self.frame.size.height - 30.0f, self.frame.size.width, 20.0f)];
@@ -80,6 +93,10 @@
     _activityView = view;
     
     [self setState:ALRefreshNormal];
+}
+
+- (void)layoutSubviews{
+    
 }
 
 
@@ -162,22 +179,62 @@
 #pragma mark -
 #pragma mark - KVO and scrollEvent handling
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    if (object == self  && [[self superview] isKindOfClass:[UIScrollView class]] && [keyPath isEqualToString:@"contentOffset"]) {
+    if ([object isKindOfClass:[UIScrollView class]] && [keyPath isEqualToString:@"contentOffset"]) {
         CGPoint newOffset = [[change objectForKey:@"new"] CGPointValue];
+        NSLog(@"%@", NSStringFromCGPoint(newOffset));
         UIScrollView *scrollView = (UIScrollView*)[self superview];
-        if (newOffset.y > 0 && newOffset.y <= REFRESH_REGION_HEIGHT) {
+        if (newOffset.y < 0 && newOffset.y >= -REFRESH_REGION_HEIGHT) {
             if (scrollView.isDragging && _state == ALRefreshPulling) {
                 // 开始拖动时，在这个区段恢复normal
                 [self setState:ALRefreshNormal];
             }
-        }else if (newOffset.y > REFRESH_REGION_HEIGHT) {
+        }else if (newOffset.y < -REFRESH_REGION_HEIGHT) {
             if (_state == ALRefreshNormal && scrollView.isDragging) {
                 // 从普通状态进入下拉状态
                 [self setState:ALRefreshPulling];
             }else if (!scrollView.isDragging){
                 // scrollView不再是拖拽状态，说明松手了，可以刷新了
-                [self setState:ALRefreshLoading];
+                NSLog(@"contentInset:%@", NSStringFromUIEdgeInsets(scrollView.contentInset));
+                NSLog(@"contentOffset:%@", NSStringFromCGPoint(scrollView.contentOffset));
+                BOOL loading = NO;
+                if (self.delegate && [self.delegate respondsToSelector:@selector(ALRefreshTableDataSourceIsLoading:)]) {
+                    loading = [self.delegate ALRefreshTableDataSourceIsLoading:self];
+                }
+                
+                if (!loading) {
+                    
+                    if (self.delegate && [self.delegate respondsToSelector:@selector(ALRefreshTableDidTriggerRefresh:)]) {
+                        [self.delegate ALRefreshTableDidTriggerRefresh:ALRefreshHeader];
+                    }
+                    
+                    [UIView animateWithDuration:0.1
+                                     animations:^{
+                                         scrollView.contentInset = UIEdgeInsetsMake(_originalInset.top+REFRESH_REGION_HEIGHT, _originalInset.left, _originalInset.right, _originalInset.bottom);
+                                     } completion:^(BOOL finished) {
+                                         [self setState:ALRefreshLoading];
+                                     }];
+                }
+                
             }
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark - public method
+- (void)ALRefreshScrollViewDataSourceDidFinishedLoading:(UIScrollView *)scrollView andComplete:(void (^)(void))completeBlock{
+    
+    if (_state != ALRefreshNormal) {
+        if (scrollView) {
+            [UIView animateWithDuration:0.3
+                             animations:^{
+                                 [scrollView setContentInset:_originalInset];
+                             } completion:^(BOOL finished) {
+                                 [self setState:ALRefreshNormal];
+                                 if (completeBlock) {
+                                     completeBlock();
+                                 }
+                             }];
         }
     }
 }
