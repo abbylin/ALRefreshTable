@@ -8,6 +8,7 @@
 
 #import "ALRootTableViewController.h"
 #import "ALRefreshTableHeaderView.h"
+#import "ALRefreshTableFooterView.h"
 
 @interface ALRootTableViewController ()
 
@@ -29,17 +30,31 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
+    
+    self.originalTableInset = self.tableView.contentInset;
+    self.originalTableOffset = self.tableView.contentOffset;
 }
 
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
+    NSLog(@"original contentInset:%@", NSStringFromUIEdgeInsets(self.tableView.contentInset));
+    NSLog(@"original contentOffset:%@", NSStringFromCGPoint(self.tableView.contentOffset));
+    
     self.tableView.frame = self.view.bounds;
+    
+    self.originalTableInset = self.tableView.contentInset;
+    self.originalTableOffset = self.tableView.contentOffset;
+    
+    // if there is header, set the originalInset and originalOffset
     if (self.refreshHeaderView && [[self.refreshHeaderView superview] isEqual:self.tableView]) {
         self.refreshHeaderView.originalInset = self.tableView.contentInset;
+        self.refreshHeaderView.originalOffset = self.tableView.contentOffset;
     }
     
-    NSLog(@"originalInset = %@", NSStringFromUIEdgeInsets(self.tableView.contentInset));
-    NSLog(@"originalOffset = %@", NSStringFromCGPoint(self.tableView.contentOffset));
+    if (self.refreshFooterView && [[self.refreshFooterView superview] isEqual:self.tableView]){
+        self.refreshFooterView.originalInset = self.tableView.contentInset;
+        self.refreshFooterView.originalOffset = self.tableView.contentOffset;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,6 +80,31 @@
     if (self.refreshHeaderView && [self.refreshHeaderView superview]) {
         [self.refreshHeaderView removeFromSuperview];
         self.refreshHeaderView = nil;
+    }
+}
+
+- (void)setRefreshFooter{
+    if (self.refreshFooterView) {
+        if ([self.refreshFooterView superview] && [self.refreshFooterView superview] != self.tableView) {
+            [self.refreshFooterView removeFromSuperview];
+            self.refreshFooterView = nil;
+        }
+    }
+    
+    if (self.refreshFooterView == nil) {
+        self.refreshFooterView = [[ALRefreshTableFooterView alloc] initInScrollView:self.tableView];
+        self.refreshFooterView.delegate = self;
+        self.refreshFooterView.originalOffset = self.originalTableOffset;
+        self.refreshFooterView.originalInset = self.originalTableInset;
+    }
+    CGFloat height = MAX(self.tableView.contentSize.height, self.tableView.frame.size.height);
+    self.refreshFooterView.frame = CGRectMake(0.0, height-self.refreshFooterView.originalOffset.y, self.refreshFooterView.frame.size.width, self.refreshFooterView.frame.size.height);
+}
+
+- (void)removeRefreshFooter{
+    if (self.refreshFooterView && [self.refreshFooterView superview]) {
+        [self.refreshFooterView removeFromSuperview];
+        self.refreshFooterView = nil;
     }
 }
 
@@ -118,16 +158,14 @@
                                                                             completeBlock();
                                                                         }
                                                                     }];
+    }else if (self.refreshPos == ALRefreshFooter){
+        [self.refreshFooterView ALRefreshScrollViewDataSourceDidFinishedLoading:self.tableView
+                                                                    andComplete:^{
+                                                                        if (completeBlock) {
+                                                                            completeBlock();
+                                                                        }
+                                                                    }];
     }
-    
-//    if (_refreshHeaderView) {
-//        [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:_tableView andComplete:completeBlock];
-//    }
-//    
-//    if (_refreshFooterView) {
-//        [_refreshFooterView egoRefreshScrollViewDataSourceDidFinishedLoading:_tableView withComplete:completeBlock];
-//        [self setFooterView];
-//    }
     
     self.refreshPos = -1;
     // overide, the actula reloading tableView operation and reseting position operation is done in the subclass

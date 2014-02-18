@@ -1,16 +1,15 @@
 //
-//  ALRefreshTableHeaderView.h
+//  ALRefreshTableFooterView.h
 //  ALRefreshTable
 //
-//  Created by Abby lin on 14-2-12.
+//  Created by Abby lin on 14-2-18.
 //  Copyright (c) 2014年 lin zhu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
 #import "ALRefreshTableDelegate.h"
 
-@interface ALRefreshTableHeaderView : UIView
+@interface ALRefreshTableFooterView : UIView
 
 @property (nonatomic, weak) id<ALRefreshTableDelegate> delegate;
 @property (nonatomic, assign) UIEdgeInsets originalInset;

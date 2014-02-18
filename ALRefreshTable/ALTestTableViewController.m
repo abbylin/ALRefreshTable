@@ -12,7 +12,7 @@
 
 @interface ALTestTableViewController ()
 
-@property (nonatomic, strong)NSArray *dataArray;
+@property (nonatomic, strong)NSMutableArray *dataArray;
 
 @end
 
@@ -23,11 +23,19 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
-    [self addRefreshHeader];
-
+    self.tableView.rowHeight = 60.0f;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"testCell"];
     
-    self.dataArray = @[@"label1", @"label2", @"label3"];
+    self.dataArray = [[NSMutableArray alloc] initWithCapacity:3];
+    [self.dataArray addObjectsFromArray:@[@"label1", @"label2", @"label3"]];
+    
+    [self addRefreshHeader];
+    
+}
+
+- (void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    [self setRefreshFooter];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,16 +65,33 @@
     return cell;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"scrollView.contentOffset.y= %f", scrollView.contentOffset.y);
-}
-
-
 #pragma mark -
 #pragma mark - testcode
 - (void)beginToReloadData:(ALRefreshPos)aRefreshPos{
     [super beginToReloadData:aRefreshPos];
-    [self performSelector:@selector(testFinish) withObject:nil afterDelay:0.5];
+    
+    if (aRefreshPos == ALRefreshHeader) {
+        // reload data
+        [self performSelector:@selector(testFinish) withObject:nil afterDelay:0.5];
+    }else{
+        // load more data
+        [self performSelector:@selector(testLoadMore) withObject:nil afterDelay:0.5];
+    }
+}
+
+- (void)testLoadMore{
+    int i = self.dataArray ? self.dataArray.count : 0;
+    for (int k = 0; k < 3; k++) {
+        [self.dataArray addObject:[NSString stringWithFormat:@"label%d", i+1]];
+        i ++;
+    }
+    
+    [self.tableView reloadData];
+    [self finishReloadingDataComplete:^{
+        if (self.refreshFooterView) {
+            [self setRefreshFooter];
+        }
+    }];
 }
 
 - (void)testFinish{

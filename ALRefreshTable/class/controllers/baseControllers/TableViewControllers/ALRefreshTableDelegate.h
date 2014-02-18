@@ -22,7 +22,7 @@ typedef enum{
 
 typedef enum{
 	ALRefreshHeader = 0,
-	ALORefreshFooter
+	ALRefreshFooter
 } ALRefreshPos;
 
 @protocol ALRefreshTableDelegate <NSObject>
