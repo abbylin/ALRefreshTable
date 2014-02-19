@@ -9,6 +9,7 @@
 #import "ALMainController.h"
 #import "TestStockController.h"
 #import "ALTestTableViewController.h"
+#import "NTESIMMainBaseViewController.h"
 
 @interface ALMainController ()
 
@@ -31,7 +32,7 @@
 {
     [super viewDidLoad];
     
-    self.dataArray = @[@"rootTable", @"stockView"];
+    self.dataArray = @[@"rootTable", @"stockView", @"customBaseViewController"];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -83,6 +84,10 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 0){
         ALTestTableViewController *vc = [[ALTestTableViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.row == 2){
+        NTESIMMainBaseViewController *vc = [[NTESIMMainBaseViewController alloc] init];
+        self.navigationController.navigationBarHidden = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

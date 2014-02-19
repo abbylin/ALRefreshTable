@@ -186,6 +186,11 @@
             return;
         }
         
+        BOOL loading = NO;
+        if (self.delegate && [self.delegate respondsToSelector:@selector(ALRefreshTableDataSourceIsLoading:)]) {
+            loading = [self.delegate ALRefreshTableDataSourceIsLoading:self];
+        }
+        
         NSLog(@"%@", NSStringFromCGPoint(newOffset));
         UIScrollView *scrollView = (UIScrollView*)[self superview];
         if (fabsf(newOffset.y - self.originalOffset.y) > 0 && fabsf(newOffset.y - self.originalOffset.y) <= REFRESH_REGION_HEIGHT) {
@@ -202,10 +207,6 @@
                 // scrollView不再是拖拽状态，说明松手了，可以刷新了
                 NSLog(@"contentInset:%@", NSStringFromUIEdgeInsets(scrollView.contentInset));
                 NSLog(@"contentOffset:%@", NSStringFromCGPoint(scrollView.contentOffset));
-                BOOL loading = NO;
-                if (self.delegate && [self.delegate respondsToSelector:@selector(ALRefreshTableDataSourceIsLoading:)]) {
-                    loading = [self.delegate ALRefreshTableDataSourceIsLoading:self];
-                }
                 
                 if (!loading) {
                     

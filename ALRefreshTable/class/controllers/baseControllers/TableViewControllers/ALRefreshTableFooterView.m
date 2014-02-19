@@ -185,23 +185,23 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([object isKindOfClass:[UIScrollView class]] && [keyPath isEqualToString:@"contentOffset"]) {
         CGPoint newOffset = [[change objectForKey:@"new"] CGPointValue];
-        NSLog(@"new change is:%@", change);
         if (newOffset.y < self.originalOffset.y) {
             // this means the header is being dragged, return
             return;
         }
-        
+        NSLog(@"footer new offset is %@", NSStringFromCGPoint(self.scrollView.contentOffset));
+        NSLog(@"content size is %@", NSStringFromCGSize(self.scrollView.contentSize));
         UIScrollView *scrollView = (UIScrollView*)[self superview];
-        if (fabsf(newOffset.y - self.originalOffset.y) > 0 && fabsf(newOffset.y - self.originalOffset.y) <= REFRESH_REGION_HEIGHT) {
-            if (scrollView.isDragging && _state == ALRefreshPulling) {
+        if ((scrollView.contentOffset.y + self.originalOffset.y + scrollView.frame.size.height) < scrollView.contentSize.height+REFRESH_REGION_HEIGHT && scrollView.contentOffset.y > self.originalOffset.y) {
+            if (self.scrollView.isDragging && _state == ALRefreshPulling) {
                 // 开始拖动时，在这个区段恢复normal
                 [self setState:ALRefreshNormal];
             }
-        }else if (fabsf(newOffset.y - self.originalOffset.y) > REFRESH_REGION_HEIGHT) {
-            if (_state == ALRefreshNormal && scrollView.isDragging) {
+        }else if (scrollView.contentOffset.y + self.originalOffset.y + scrollView.frame.size.height > scrollView.contentSize.height+REFRESH_REGION_HEIGHT) {
+            if (_state == ALRefreshNormal && self.scrollView.isDragging) {
                 // 从普通状态进入下拉状态
                 [self setState:ALRefreshPulling];
-            }else if (!scrollView.isDragging){
+            }else if (!self.scrollView.isDragging){
                 // scrollView不再是拖拽状态，说明松手了，可以刷新了
                 BOOL loading = NO;
                 if (self.delegate && [self.delegate respondsToSelector:@selector(ALRefreshTableDataSourceIsLoading:)]) {

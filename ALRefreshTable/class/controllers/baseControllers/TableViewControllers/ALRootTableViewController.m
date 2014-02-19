@@ -54,6 +54,7 @@
     if (self.refreshFooterView && [[self.refreshFooterView superview] isEqual:self.tableView]){
         self.refreshFooterView.originalInset = self.tableView.contentInset;
         self.refreshFooterView.originalOffset = self.tableView.contentOffset;
+        [self setRefreshFooter];
     }
 }
 
@@ -98,7 +99,7 @@
         self.refreshFooterView.originalInset = self.originalTableInset;
     }
     CGFloat height = MAX(self.tableView.contentSize.height, self.tableView.frame.size.height);
-    self.refreshFooterView.frame = CGRectMake(0.0, height-self.refreshFooterView.originalOffset.y, self.refreshFooterView.frame.size.width, self.refreshFooterView.frame.size.height);
+    self.refreshFooterView.frame = CGRectMake(0.0, height+self.refreshFooterView.originalOffset.y, self.refreshFooterView.frame.size.width, self.refreshFooterView.frame.size.height);
 }
 
 - (void)removeRefreshFooter{
@@ -149,7 +150,6 @@
 #pragma mark method that should be called when the refreshing is finished
 - (void)finishReloadingDataComplete:(void (^)(void))completeBlock{
     //  model should call this when its done loading
-	self.isReloading = NO;
     
     if (self.refreshPos == ALRefreshHeader) {
         [self.refreshHeaderView ALRefreshScrollViewDataSourceDidFinishedLoading:self.tableView
@@ -157,6 +157,7 @@
                                                                         if (completeBlock) {
                                                                             completeBlock();
                                                                         }
+                                                                        self.isReloading = NO;
                                                                     }];
     }else if (self.refreshPos == ALRefreshFooter){
         [self.refreshFooterView ALRefreshScrollViewDataSourceDidFinishedLoading:self.tableView
@@ -164,6 +165,7 @@
                                                                         if (completeBlock) {
                                                                             completeBlock();
                                                                         }
+                                                                        self.isReloading = NO;
                                                                     }];
     }
     

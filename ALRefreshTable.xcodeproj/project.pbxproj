@@ -22,6 +22,8 @@
 		EA071867187FF8E7004DC993 /* ALRefreshTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA071866187FF8E7004DC993 /* ALRefreshTableTests.m */; };
 		EA0B909318AB4CB300CC7026 /* ALRefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0B909218AB4CB300CC7026 /* ALRefreshTableHeaderView.m */; };
 		EA0B909718AB54D700CC7026 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0B909618AB54D700CC7026 /* grayArrow@2x.png */; };
+		EA0DF38E18B488FF00DDFCE2 /* NTESIMMainBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0DF38D18B488FF00DDFCE2 /* NTESIMMainBaseViewController.m */; };
+		EA0DF39018B4AA4200DDFCE2 /* top_navigation_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0DF38F18B4AA4200DDFCE2 /* top_navigation_back@2x.png */; };
 		EA29318D18AA178A00C0AEBB /* ALTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA29318C18AA178A00C0AEBB /* ALTestTableViewController.m */; };
 		EA887E081883C18900675C24 /* TestStockController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA887E071883C18900675C24 /* TestStockController.m */; };
 		EA887E201883D40A00675C24 /* ALStockKLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA887E1F1883D40A00675C24 /* ALStockKLineView.m */; };
@@ -67,6 +69,9 @@
 		EA0B909218AB4CB300CC7026 /* ALRefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRefreshTableHeaderView.m; sourceTree = "<group>"; };
 		EA0B909618AB54D700CC7026 /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
 		EA0B909818AB57D900CC7026 /* ALRefreshTableDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALRefreshTableDelegate.h; sourceTree = "<group>"; };
+		EA0DF38C18B488FF00DDFCE2 /* NTESIMMainBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESIMMainBaseViewController.h; sourceTree = "<group>"; };
+		EA0DF38D18B488FF00DDFCE2 /* NTESIMMainBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESIMMainBaseViewController.m; sourceTree = "<group>"; };
+		EA0DF38F18B4AA4200DDFCE2 /* top_navigation_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_navigation_back@2x.png"; sourceTree = "<group>"; };
 		EA29318B18AA178A00C0AEBB /* ALTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTestTableViewController.h; sourceTree = "<group>"; };
 		EA29318C18AA178A00C0AEBB /* ALTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTestTableViewController.m; sourceTree = "<group>"; };
 		EA887E061883C18900675C24 /* TestStockController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestStockController.h; sourceTree = "<group>"; };
@@ -168,11 +173,14 @@
 		EA071848187FF8E7004DC993 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA0DF38F18B4AA4200DDFCE2 /* top_navigation_back@2x.png */,
 				EA0B909418AB54D700CC7026 /* sources */,
 				EA071849187FF8E7004DC993 /* ALRefreshTable-Info.plist */,
 				EA07184A187FF8E7004DC993 /* InfoPlist.strings */,
 				EA07184D187FF8E7004DC993 /* main.m */,
 				EA07184F187FF8E7004DC993 /* ALRefreshTable-Prefix.pch */,
+				EA0DF38C18B488FF00DDFCE2 /* NTESIMMainBaseViewController.h */,
+				EA0DF38D18B488FF00DDFCE2 /* NTESIMMainBaseViewController.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -354,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA0B909718AB54D700CC7026 /* grayArrow@2x.png in Resources */,
+				EA0DF39018B4AA4200DDFCE2 /* top_navigation_back@2x.png in Resources */,
 				EA07184C187FF8E7004DC993 /* InfoPlist.strings in Resources */,
 				EA071854187FF8E7004DC993 /* Images.xcassets in Resources */,
 			);
@@ -413,6 +422,7 @@
 				EABDA3BC18B2FA6500428061 /* ALRefreshTableFooterView.m in Sources */,
 				EA071852187FF8E7004DC993 /* AppDelegate.m in Sources */,
 				EAA70A3918A8C5B80054EFC1 /* EGORefreshTableFooterView.m in Sources */,
+				EA0DF38E18B488FF00DDFCE2 /* NTESIMMainBaseViewController.m in Sources */,
 				EA0B909318AB4CB300CC7026 /* ALRefreshTableHeaderView.m in Sources */,
 				EA07184E187FF8E7004DC993 /* main.m in Sources */,
 				EAA70A3A18A8C5B80054EFC1 /* EGORefreshTableHeaderView.m in Sources */,

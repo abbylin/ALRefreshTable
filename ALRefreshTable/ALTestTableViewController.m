@@ -27,15 +27,15 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"testCell"];
     
     self.dataArray = [[NSMutableArray alloc] initWithCapacity:3];
-    [self.dataArray addObjectsFromArray:@[@"label1", @"label2", @"label3"]];
+    [self.dataArray addObjectsFromArray:@[@"label1", @"label2", @"label3", @"label4", @"label5", @"label6", @"label7", @"label8"]];
     
     [self addRefreshHeader];
-    
+    [self.tableView reloadData];
+    [self setRefreshFooter];
 }
 
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    [self setRefreshFooter];
 }
 
 - (void)didReceiveMemoryWarning
