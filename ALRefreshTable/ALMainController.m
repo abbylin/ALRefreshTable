@@ -9,7 +9,7 @@
 #import "ALMainController.h"
 #import "TestStockController.h"
 #import "ALTestTableViewController.h"
-#import "NTESIMMainBaseViewController.h"
+#import "NTESIMHomeViewController.h"
 
 @interface ALMainController ()
 
@@ -86,7 +86,7 @@
         ALTestTableViewController *vc = [[ALTestTableViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 2){
-        NTESIMMainBaseViewController *vc = [[NTESIMMainBaseViewController alloc] init];
+        NTESIMHomeViewController *vc = [[NTESIMHomeViewController alloc] init];
         self.navigationController.navigationBarHidden = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }

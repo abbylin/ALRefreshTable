@@ -28,4 +28,6 @@
 // default is back button
 - (void)addLeftButtonWithImage:(UIImage*)image target:(id)target action:(SEL)selector;
 
+- (void)setTwoLineNaviTitleWithMain:(NSString*)mainTitle andSubTitle:(NSString*)subTitle;
+
 @end
