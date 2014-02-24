@@ -175,7 +175,7 @@
 }
 
 - (void)setDefaultSelectedTab{
-    
+    [self selectTabFromButtonPressedWithIndex:0];
 }
 
 @end

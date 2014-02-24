@@ -17,11 +17,29 @@
     UIView *_leftButton;
     
     CGFloat _statusBarHeight;
+    
+    BOOL _haveNaviBar;
 }
 
 @end
 
 @implementation NTESIMMainBaseViewController
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _haveNaviBar = YES;
+    }
+    return self;
+}
+
+- (id)initWithCustomNaviBar:(BOOL)haveNaviBar{
+    self = [super init];
+    if (self) {
+        _haveNaviBar = haveNaviBar;
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -30,32 +48,34 @@
     
     self.view.userInteractionEnabled = YES;
 
-    _statusBarHeight = (SYSTEM_VERSION >= 7.0) ? 20.0 : 0.0;
-    
-    self.view.backgroundColor = RGBCOLOR(198, 212, 234);
-    self.customNaviBar = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, 44.0+_statusBarHeight)];
-    self.customNaviBar.image = nil;
-    [self.view addSubview:self.customNaviBar];
-    self.customNaviBar.backgroundColor = RGBCOLOR(1, 23, 63);
-    
-    
-    // title label
-    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(70.0, _statusBarHeight, self.view.bounds.size.width - 140.0, self.customNaviBar.bounds.size.height - _statusBarHeight)];
-    _titleLabel.backgroundColor = [UIColor clearColor];
-    _titleLabel.font = [UIFont systemFontOfSize:18.0];
-    _titleLabel.textColor = [UIColor whiteColor];
-    _titleLabel.textAlignment = NSTextAlignmentCenter;
-    [self.customNaviBar addSubview:_titleLabel];
-    
-    // left navi arrow
-    UIImageView *backButton = [[UIImageView alloc] initWithFrame:CGRectMake(10.0, _statusBarHeight, 45.0, 44.0)];
-    backButton.userInteractionEnabled = YES;
-    backButton.image = [UIImage imageNamed:@"top_navigation_back.png"];
-    backButton.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:backButton];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(back:)];
-    [backButton addGestureRecognizer:tap];
-    _leftButton = backButton;
+    if (_haveNaviBar) {
+        _statusBarHeight = (SYSTEM_VERSION >= 7.0) ? 20.0 : 0.0;
+        
+        self.view.backgroundColor = RGBCOLOR(198, 212, 234);
+        self.customNaviBar = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, 44.0+_statusBarHeight)];
+        self.customNaviBar.image = nil;
+        [self.view addSubview:self.customNaviBar];
+        self.customNaviBar.backgroundColor = RGBCOLOR(1, 23, 63);
+        
+        
+        // title label
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(70.0, _statusBarHeight, self.view.bounds.size.width - 140.0, self.customNaviBar.bounds.size.height - _statusBarHeight)];
+        _titleLabel.backgroundColor = [UIColor clearColor];
+        _titleLabel.font = [UIFont systemFontOfSize:18.0];
+        _titleLabel.textColor = [UIColor whiteColor];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        [self.customNaviBar addSubview:_titleLabel];
+        
+        // left navi arrow
+        UIImageView *backButton = [[UIImageView alloc] initWithFrame:CGRectMake(10.0, _statusBarHeight, 45.0, 44.0)];
+        backButton.userInteractionEnabled = YES;
+        backButton.image = [UIImage imageNamed:@"top_navigation_back.png"];
+        backButton.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:backButton];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(back:)];
+        [backButton addGestureRecognizer:tap];
+        _leftButton = backButton;
+    }
 }
 
 - (void)viewWillLayoutSubviews{
@@ -185,6 +205,13 @@
     
     _titleLabel.frame = CGRectMake(_titleLabel.frame.origin.x, _titleLabel.frame.origin.y, _titleLabel.frame.size.width, 20.0);
     _subTitleLabel.frame = CGRectMake(_titleLabel.frame.origin.x, CGRectGetMaxY(_titleLabel.frame) + 6.0, _titleLabel.frame.size.width, 14.0);
+}
+
+- (void)setNoNaviBar{
+    if (self.customNaviBar && [self.customNaviBar superview]) {
+        [self.customNaviBar removeFromSuperview];
+        self.customNaviBar = nil;
+    }
 }
 
 @end

@@ -20,6 +20,7 @@
 		EA07185D187FF8E7004DC993 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA071845187FF8E7004DC993 /* UIKit.framework */; };
 		EA071865187FF8E7004DC993 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA071863187FF8E7004DC993 /* InfoPlist.strings */; };
 		EA071867187FF8E7004DC993 /* ALRefreshTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA071866187FF8E7004DC993 /* ALRefreshTableTests.m */; };
+		EA0A74FC18BAED0E00E36A39 /* NTESIMCustomStocksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0A74FB18BAED0E00E36A39 /* NTESIMCustomStocksViewController.m */; };
 		EA0B909718AB54D700CC7026 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0B909618AB54D700CC7026 /* grayArrow@2x.png */; };
 		EA0DF38E18B488FF00DDFCE2 /* NTESIMMainBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0DF38D18B488FF00DDFCE2 /* NTESIMMainBaseViewController.m */; };
 		EA0DF39018B4AA4200DDFCE2 /* top_navigation_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0DF38F18B4AA4200DDFCE2 /* top_navigation_back@2x.png */; };
@@ -63,6 +64,8 @@
 		EA071862187FF8E7004DC993 /* ALRefreshTableTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ALRefreshTableTests-Info.plist"; sourceTree = "<group>"; };
 		EA071864187FF8E7004DC993 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA071866187FF8E7004DC993 /* ALRefreshTableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALRefreshTableTests.m; sourceTree = "<group>"; };
+		EA0A74FA18BAED0E00E36A39 /* NTESIMCustomStocksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESIMCustomStocksViewController.h; sourceTree = "<group>"; };
+		EA0A74FB18BAED0E00E36A39 /* NTESIMCustomStocksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESIMCustomStocksViewController.m; sourceTree = "<group>"; };
 		EA0B909118AB4CB300CC7026 /* ALRefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRefreshTableHeaderView.h; sourceTree = "<group>"; };
 		EA0B909218AB4CB300CC7026 /* ALRefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRefreshTableHeaderView.m; sourceTree = "<group>"; };
 		EA0B909618AB54D700CC7026 /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 				EA07184D187FF8E7004DC993 /* main.m */,
 				EA0DF38C18B488FF00DDFCE2 /* NTESIMMainBaseViewController.h */,
 				EA0DF38D18B488FF00DDFCE2 /* NTESIMMainBaseViewController.m */,
+				EA0A74FA18BAED0E00E36A39 /* NTESIMCustomStocksViewController.h */,
+				EA0A74FB18BAED0E00E36A39 /* NTESIMCustomStocksViewController.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1763,6 +1768,7 @@
 				EA7D7FC018B60A4600E3AC21 /* ALStockKLineView.m in Sources */,
 				EA7D7EFD18B5DB0200E3AC21 /* NTESIMHomeViewController.m in Sources */,
 				EA7D7FBB18B60A4600E3AC21 /* ALRootTableViewController.m in Sources */,
+				EA0A74FC18BAED0E00E36A39 /* NTESIMCustomStocksViewController.m in Sources */,
 				EA7D7FB918B60A4600E3AC21 /* ALRefreshTableFooterView.m in Sources */,
 				EA2C81A418B73A1500040D55 /* NTESIMTabBarView.m in Sources */,
 				EA7D7FBF18B60A4600E3AC21 /* ALStockSeries.m in Sources */,

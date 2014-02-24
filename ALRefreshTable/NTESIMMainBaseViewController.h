@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong)UIImageView *customNaviBar;
 
+- (id)initWithCustomNaviBar:(BOOL)haveNaviBar;
 
 - (void)addRightButtonWithImage:(UIImage*)image target:(id)target action:(SEL)selector;
 
@@ -29,5 +30,7 @@
 - (void)addLeftButtonWithImage:(UIImage*)image target:(id)target action:(SEL)selector;
 
 - (void)setTwoLineNaviTitleWithMain:(NSString*)mainTitle andSubTitle:(NSString*)subTitle;
+
+- (void)setNoNaviBar;
 
 @end
