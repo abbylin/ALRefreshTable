@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TestStockController.h"
+#import "ALMainController.h"
 
 @implementation AppDelegate
 
@@ -18,9 +19,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     
-    TestStockController *VC = [[TestStockController alloc] init];
+    ALMainController *VC = [[ALMainController alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:VC];
-    navi.navigationBarHidden = YES;
+    navi.navigationBarHidden = NO;
     self.window.rootViewController = navi;
     
     [self.window makeKeyAndVisible];
