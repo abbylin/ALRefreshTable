@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 lin zhu. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "ALRootTableViewController.h"
 
-@interface ALTestTableViewController : RootViewController
+@interface ALTestTableViewController : ALRootTableViewController
 
 @end

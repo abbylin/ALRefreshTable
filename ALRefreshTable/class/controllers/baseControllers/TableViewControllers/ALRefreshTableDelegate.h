@@ -12,6 +12,7 @@
 #define FLIP_ANIMATION_DURATION 0.18f
 
 #define  REFRESH_REGION_HEIGHT 65.0f
+#define  REFRESH_MAX_HEIGHT 400.0f
 
 typedef enum{
 	ALRefreshPulling = 0,
@@ -21,7 +22,7 @@ typedef enum{
 
 typedef enum{
 	ALRefreshHeader = 0,
-	ALORefreshFooter
+	ALRefreshFooter
 } ALRefreshPos;
 
 @protocol ALRefreshTableDelegate <NSObject>

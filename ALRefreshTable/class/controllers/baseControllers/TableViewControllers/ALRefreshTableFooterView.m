@@ -1,14 +1,14 @@
 //
-//  ALRefreshTableHeaderView.m
+//  ALRefreshTableFooterView.m
 //  ALRefreshTable
 //
-//  Created by Abby lin on 14-2-12.
+//  Created by Abby lin on 14-2-18.
 //  Copyright (c) 2014年 lin zhu. All rights reserved.
 //
 
-#import "ALRefreshTableHeaderView.h"
+#import "ALRefreshTableFooterView.h"
 
-@interface ALRefreshTableHeaderView (){
+@interface ALRefreshTableFooterView (){
     
     UILabel *_lastUpdatedLabel;
     UILabel *_statusLabel;
@@ -22,10 +22,10 @@
 
 @end
 
-@implementation ALRefreshTableHeaderView
+@implementation ALRefreshTableFooterView
 
 - (id)initInScrollView:(UIScrollView*)scrollView{
-    self = [super initWithFrame:CGRectMake(0, -(REFRESH_MAX_HEIGHT + scrollView.contentInset.top), scrollView.frame.size.width, REFRESH_MAX_HEIGHT)];
+    self = [super initWithFrame:CGRectMake(0, MAX(scrollView.frame.size.height, scrollView.contentSize.height), scrollView.frame.size.width, REFRESH_MAX_HEIGHT)];
     if (self) {
         self.scrollView = scrollView;
         self.originalInset = scrollView.contentInset;
@@ -33,7 +33,7 @@
         [scrollView addSubview:self];
         [scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
         
-        [self initTableHeaderView];
+        [self initTableFooterView];
     }
     return self;
 }
@@ -53,11 +53,11 @@
     }
 }
 
-- (void)initTableHeaderView{
+- (void)initTableFooterView{
     
     self.backgroundColor = [UIColor colorWithRed:226.0/255.0 green:231.0/255.0 blue:237.0/255.0 alpha:1.0];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, self.frame.size.height - 30.0f, self.frame.size.width, 20.0f)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 40.0f, self.frame.size.width, 20.0f)];
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     label.font = [UIFont systemFontOfSize:12.0f];
     label.textColor = TEXT_COLOR;
@@ -68,7 +68,7 @@
     [self addSubview:label];
     _lastUpdatedLabel=label;
     
-    label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, self.frame.size.height - 48.0f, self.frame.size.width, 20.0f)];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 20.0f, self.frame.size.width, 20.0f)];
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     label.font = [UIFont boldSystemFontOfSize:13.0f];
     label.textColor = TEXT_COLOR;
@@ -80,19 +80,20 @@
     _statusLabel=label;
     
     CALayer *layer = [CALayer layer];
-    layer.frame = CGRectMake(25.0f, self.frame.size.height - REFRESH_REGION_HEIGHT, 30.0f, 55.0f);
+    layer.frame = CGRectMake(25.0f, 20.0f, 30.0f, 55.0f);
     layer.contentsGravity = kCAGravityResizeAspect;
     layer.contents = (id)[UIImage imageNamed:@"grayArrow.png"].CGImage;
-    
+
     [[self layer] addSublayer:layer];
     _arrowImage=layer;
     
     UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    view.frame = CGRectMake(25.0f, self.frame.size.height - 38.0f, 20.0f, 20.0f);
+    view.frame = CGRectMake(25.0f, 20.0f, 20.0f, 20.0f);
     [self addSubview:view];
     _activityView = view;
     
     [self setState:ALRefreshNormal];
+    
 }
 
 - (void)layoutSubviews{
@@ -100,10 +101,12 @@
 }
 
 
-#pragma mark - 
+#pragma mark -
 #pragma mark - update state and update refresh time
 
 - (void)refreshLastUpdatedDate {
+    
+    return;
 	
 	if (self.delegate && [self.delegate respondsToSelector:@selector(ALRefreshTableDataSourceLastUpdated:)]) {
 		
@@ -131,10 +134,11 @@
 	switch (aState) {
 		case ALRefreshPulling:
 			
-			_statusLabel.text = NSLocalizedString(@"Release to refresh...", @"Release to refresh status");
+			_statusLabel.text = NSLocalizedString(@"Release to load more...", @"Release to load more");
 			[CATransaction begin];
 			[CATransaction setAnimationDuration:FLIP_ANIMATION_DURATION];
-			_arrowImage.transform = CATransform3DMakeRotation((M_PI / 180.0) * 180.0f, 0.0f, 0.0f, 1.0f);
+            //_arrowImage.transform = CATransform3DMakeRotation((M_PI / 180.0) * 180.0f, 0.0f, 0.0f, 1.0f);
+            _arrowImage.transform = CATransform3DIdentity;
 			[CATransaction commit];
 			
 			break;
@@ -147,12 +151,12 @@
 				[CATransaction commit];
 			}
 			
-			_statusLabel.text = NSLocalizedString(@"Pull down to refresh...", @"Pull down to refresh status");
+			_statusLabel.text = NSLocalizedString(@"Pull up to load more...", @"Pull up to load more");
 			[_activityView stopAnimating];
 			[CATransaction begin];
 			[CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
 			_arrowImage.hidden = NO;
-			_arrowImage.transform = CATransform3DIdentity;
+            _arrowImage.transform = CATransform3DMakeRotation((M_PI / 180.0) * 180.0f, 0.0f, 0.0f, 1.0f);
 			[CATransaction commit];
 			
 			[self refreshLastUpdatedDate];
@@ -181,45 +185,42 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([object isKindOfClass:[UIScrollView class]] && [keyPath isEqualToString:@"contentOffset"]) {
         CGPoint newOffset = [[change objectForKey:@"new"] CGPointValue];
-        if (newOffset.y >= self.originalOffset.y) {
-            // this means the footer is being dragged, return
+        if (newOffset.y < self.originalOffset.y) {
+            // this means the header is being dragged, return
             return;
         }
-        
-        BOOL loading = NO;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(ALRefreshTableDataSourceIsLoading:)]) {
-            loading = [self.delegate ALRefreshTableDataSourceIsLoading:self];
-        }
-        
-        NSLog(@"%@", NSStringFromCGPoint(newOffset));
+        NSLog(@"footer new offset is %@", NSStringFromCGPoint(self.scrollView.contentOffset));
+        NSLog(@"content size is %@", NSStringFromCGSize(self.scrollView.contentSize));
         UIScrollView *scrollView = (UIScrollView*)[self superview];
-        if (fabsf(newOffset.y - self.originalOffset.y) > 0 && fabsf(newOffset.y - self.originalOffset.y) <= REFRESH_REGION_HEIGHT) {
-            // distance of the dragging is within the REFRESH_REGION_HEIGHT, normal state
-            if (scrollView.isDragging && _state == ALRefreshPulling) {
+        if ((scrollView.contentOffset.y + self.originalOffset.y + scrollView.frame.size.height) < scrollView.contentSize.height+REFRESH_REGION_HEIGHT && scrollView.contentOffset.y > self.originalOffset.y) {
+            if (self.scrollView.isDragging && _state == ALRefreshPulling) {
                 // 开始拖动时，在这个区段恢复normal
                 [self setState:ALRefreshNormal];
             }
-        }else if (fabsf(newOffset.y - self.originalOffset.y) > REFRESH_REGION_HEIGHT) {
-            if (_state == ALRefreshNormal && scrollView.isDragging) {
+        }else if (scrollView.contentOffset.y + self.originalOffset.y + scrollView.frame.size.height > scrollView.contentSize.height+REFRESH_REGION_HEIGHT) {
+            if (_state == ALRefreshNormal && self.scrollView.isDragging) {
                 // 从普通状态进入下拉状态
                 [self setState:ALRefreshPulling];
-            }else if (!scrollView.isDragging){
+            }else if (!self.scrollView.isDragging){
                 // scrollView不再是拖拽状态，说明松手了，可以刷新了
-                NSLog(@"contentInset:%@", NSStringFromUIEdgeInsets(scrollView.contentInset));
-                NSLog(@"contentOffset:%@", NSStringFromCGPoint(scrollView.contentOffset));
+                BOOL loading = NO;
+                if (self.delegate && [self.delegate respondsToSelector:@selector(ALRefreshTableDataSourceIsLoading:)]) {
+                    loading = [self.delegate ALRefreshTableDataSourceIsLoading:self];
+                }
                 
                 if (!loading) {
                     
                     if (self.delegate && [self.delegate respondsToSelector:@selector(ALRefreshTableDidTriggerRefresh:)]) {
-                        [self.delegate ALRefreshTableDidTriggerRefresh:ALRefreshHeader];
+                        [self.delegate ALRefreshTableDidTriggerRefresh:ALRefreshFooter];
                     }
                     
                     [UIView animateWithDuration:0.1
                                      animations:^{
-                                         scrollView.contentInset = UIEdgeInsetsMake(_originalInset.top+REFRESH_REGION_HEIGHT, _originalInset.left, _originalInset.bottom, _originalInset.right);
+                                         scrollView.contentInset = UIEdgeInsetsMake(self.originalInset.top, self.originalInset.left, self.originalInset.bottom+REFRESH_REGION_HEIGHT, self.originalInset.right);
                                      } completion:^(BOOL finished) {
                                          [self setState:ALRefreshLoading];
                                      }];
+                    
                 }
                 
             }
@@ -235,7 +236,7 @@
         if (scrollView) {
             [UIView animateWithDuration:0.3
                              animations:^{
-                                 [scrollView setContentInset:_originalInset];
+                                 [scrollView setContentInset:self.originalInset];
                              } completion:^(BOOL finished) {
                                  [self setState:ALRefreshNormal];
                                  if (completeBlock) {
@@ -245,6 +246,5 @@
         }
     }
 }
-
 
 @end
