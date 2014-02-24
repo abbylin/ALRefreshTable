@@ -10,7 +10,7 @@
 #import "ALStockKLineView.h"
 #import "ALStockSeries.h"
 
-#define kMaxCandles 100
+#define kMaxCandles 80
 #define kUpColor [UIColor redColor]
 #define kDownColor [UIColor greenColor];
 #define kVolumeUnit 1000000
@@ -41,7 +41,7 @@
         // Initialization code
         self.monthCursor = nil;
         self.drawDataArray = [[NSMutableArray alloc] init];
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor whiteColor];
         
         // 计算两部分的rect
         self.candleViewRect = CGRectMake(20.0, 5.0, frame.size.width - 20.0, frame.size.height*3/4);
@@ -56,10 +56,11 @@
 - (void)drawRect:(CGRect)rect{
     [super drawRect:rect];
     
-    self.tmpDrawImage = nil;
-    [self.tmpDrawImage drawInRect:CGRectMake(0, 0, rect.size.width, rect.size.height)];
+//    self.tmpDrawImage = nil;
+//    [self.tmpDrawImage drawInRect:CGRectMake(0, 0, rect.size.width, rect.size.height)];
+    
     UIGraphicsBeginImageContext(rect.size);
-    [self.tmpDrawImage drawInRect:CGRectMake(0, 0, rect.size.width, rect.size.height)];
+    //[self.tmpDrawImage drawInRect:CGRectMake(0, 0, rect.size.width, rect.size.height)];
     
     UIGraphicsPopContext();
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -71,9 +72,10 @@
     CGPathAddRect(borderPath, NULL, self.candleViewRect);
     CGPathAddRect(borderPath, NULL, self.volumeViewRect);
     [[UIColor darkGrayColor] setStroke];
+    [[UIColor whiteColor] setFill];
     CGContextSetLineWidth(context, 0.5);
     CGContextAddPath(context, borderPath);
-    CGContextDrawPath(context, kCGPathStroke);
+    CGContextDrawPath(context, kCGPathFillStroke);
     CGPathRelease(borderPath);
     
     // 开始绘制candle
@@ -81,11 +83,12 @@
     
     self.tmpDrawImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    [self.tmpDrawImage drawInRect:CGRectMake(0, 0, rect.size.width, rect.size.height)];
 }
 
 - (void)drawCandleViewWithContextRef:(CGContextRef)context{
     CGFloat beginX = self.candleViewRect.origin.x + (kMaxCandles-1) * _candleInterval;
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < kMaxCandles; i++) {
         [self drawCandleWithContext:context forEntity:(ALStockSeries*)[self.drawDataArray objectAtIndex:i] inUnitRect:CGRectMake(beginX, self.candleViewRect.origin.y, _candleInterval, CGRectGetMaxY(self.volumeViewRect)- self.candleViewRect.origin.y)];
         
         beginX -= _candleInterval;
@@ -167,7 +170,6 @@
     _maxVolume = -1;
     
     for (NSInteger i = beginIndex; i <= endIndex; i++) {
-        NSLog(@"%@", [(ALStockSeries*)[originalArray objectAtIndex:i] date]);
         CGFloat tmpMax = [(ALStockSeries*)[originalArray objectAtIndex:i] high].floatValue;
         _maxValue = (_maxValue == -1) ? tmpMax : MAX(_maxValue, tmpMax);
         
@@ -223,6 +225,7 @@
 - (CGFloat)getCandleWidth{
     return _candleInterval;
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

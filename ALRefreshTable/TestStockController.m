@@ -19,6 +19,7 @@
 @property (nonatomic, strong)ALStockKLineView *candleLineView;
 @property (nonatomic, assign)NSInteger drawCandleBeginIndex;
 @property (nonatomic, assign)NSInteger drawCandleEndIndex;
+@property (nonatomic, assign)CGPoint touchedPoint;
 
 @end
 
@@ -49,9 +50,9 @@
     [self.candleLineView setDrawStockSeriesData:self.dataArray withBegin:self.drawCandleBeginIndex andEnd:self.drawCandleEndIndex];
     [self.view addSubview:self.candleLineView];
     
-    self.candleLineView.userInteractionEnabled = YES;
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizer:)];
-    [self.candleLineView addGestureRecognizer:pan];
+//    self.candleLineView.userInteractionEnabled = YES;
+//    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizer:)];
+//    [self.candleLineView addGestureRecognizer:pan];
 }
 
 - (void)panGestureRecognizer:(UIGestureRecognizer*)recognizer{
@@ -68,6 +69,32 @@
             [self.candleLineView setNeedsDisplay];
         }
     }
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    if (touches.count == 1) {
+        UITouch *touch = [touches anyObject];
+        self.touchedPoint = [touch locationInView:self.candleLineView];
+    }
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    if (touches.count == 1) {
+        UITouch *touch = [touches anyObject];
+        //NSLog(@"CGPoint(%.2f, %.2f)", [touch locationInView:self.candleLineView].x, [touch locationInView:self.candleLineView].y);
+        
+        CGPoint newPoint = [touch locationInView:self.candleLineView];
+        NSInteger candleOffsetNum = (newPoint.x - self.touchedPoint.x)/[self.candleLineView getCandleWidth];
+        self.drawCandleBeginIndex += candleOffsetNum;
+        self.drawCandleEndIndex += candleOffsetNum;
+        NSLog(@"begin from %d, end at %d", self.drawCandleBeginIndex, self.drawCandleEndIndex);
+        [self.candleLineView setDrawStockSeriesData:self.dataArray withBegin:self.drawCandleBeginIndex andEnd:self.drawCandleEndIndex];
+        [self.candleLineView setNeedsDisplay];
+    }
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    
 }
 
 
