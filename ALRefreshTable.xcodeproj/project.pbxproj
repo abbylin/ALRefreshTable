@@ -34,6 +34,7 @@
 		EA7D7FC018B60A4600E3AC21 /* ALStockKLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D7FB618B60A4600E3AC21 /* ALStockKLineView.m */; };
 		EA887E081883C18900675C24 /* TestStockController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA887E071883C18900675C24 /* TestStockController.m */; };
 		EAA70A2F18A8B2360054EFC1 /* ALMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA70A2E18A8B2360054EFC1 /* ALMainController.m */; };
+		EAA7F2B718C7069B004B57E0 /* TestController1.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA7F2B618C7069B004B57E0 /* TestController1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,8 @@
 		EA887E231883E5A100675C24 /* ALStockSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStockSeries.m; sourceTree = "<group>"; };
 		EAA70A2D18A8B2360054EFC1 /* ALMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALMainController.h; sourceTree = "<group>"; };
 		EAA70A2E18A8B2360054EFC1 /* ALMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALMainController.m; sourceTree = "<group>"; };
+		EAA7F2B518C7069B004B57E0 /* TestController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController1.h; sourceTree = "<group>"; };
+		EAA7F2B618C7069B004B57E0 /* TestController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestController1.m; sourceTree = "<group>"; };
 		EABDA3BA18B2FA6500428061 /* ALRefreshTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRefreshTableFooterView.h; sourceTree = "<group>"; };
 		EABDA3BB18B2FA6500428061 /* ALRefreshTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRefreshTableFooterView.m; sourceTree = "<group>"; };
 		EAE2BC2918ACA9780016D4E4 /* ALRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRootTableViewController.h; sourceTree = "<group>"; };
@@ -1606,6 +1609,8 @@
 			isa = PBXGroup;
 			children = (
 				EAA70A3118A8C5B80054EFC1 /* baseControllers */,
+				EAA7F2B518C7069B004B57E0 /* TestController1.h */,
+				EAA7F2B618C7069B004B57E0 /* TestController1.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1776,6 +1781,7 @@
 				EA0DF38E18B488FF00DDFCE2 /* NTESIMMainBaseViewController.m in Sources */,
 				EA07184E187FF8E7004DC993 /* main.m in Sources */,
 				EA887E081883C18900675C24 /* TestStockController.m in Sources */,
+				EAA7F2B718C7069B004B57E0 /* TestController1.m in Sources */,
 				EAA70A2F18A8B2360054EFC1 /* ALMainController.m in Sources */,
 				EA7D7FBA18B60A4600E3AC21 /* ALRefreshTableHeaderView.m in Sources */,
 			);
