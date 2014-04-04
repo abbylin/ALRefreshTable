@@ -43,11 +43,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section]-1) {
-        return 50;
-    }else{
-        return 80;
-    }
+    return 80.0;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

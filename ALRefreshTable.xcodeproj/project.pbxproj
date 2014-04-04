@@ -24,8 +24,10 @@
 		EA0B909718AB54D700CC7026 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0B909618AB54D700CC7026 /* grayArrow@2x.png */; };
 		EA0DF38E18B488FF00DDFCE2 /* NTESIMMainBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0DF38D18B488FF00DDFCE2 /* NTESIMMainBaseViewController.m */; };
 		EA0DF39018B4AA4200DDFCE2 /* top_navigation_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0DF38F18B4AA4200DDFCE2 /* top_navigation_back@2x.png */; };
+		EA28791F18EBB0A700F5FBF4 /* TestScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA28791E18EBB0A700F5FBF4 /* TestScrollViewController.m */; };
 		EA29318D18AA178A00C0AEBB /* ALTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA29318C18AA178A00C0AEBB /* ALTestTableViewController.m */; };
 		EA2C81A418B73A1500040D55 /* NTESIMTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA2C81A318B73A1400040D55 /* NTESIMTabBarView.m */; };
+		EA4BF31118EBC45D00281B5D /* ALTableCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4BF31018EBC45D00281B5D /* ALTableCycleScrollView.m */; };
 		EA7D7EFD18B5DB0200E3AC21 /* NTESIMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D7EFC18B5DB0200E3AC21 /* NTESIMHomeViewController.m */; };
 		EA7D7FB918B60A4600E3AC21 /* ALRefreshTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D7FA518B60A4600E3AC21 /* ALRefreshTableFooterView.m */; };
 		EA7D7FBA18B60A4600E3AC21 /* ALRefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D7FA718B60A4600E3AC21 /* ALRefreshTableHeaderView.m */; };
@@ -74,10 +76,14 @@
 		EA0DF38C18B488FF00DDFCE2 /* NTESIMMainBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESIMMainBaseViewController.h; sourceTree = "<group>"; };
 		EA0DF38D18B488FF00DDFCE2 /* NTESIMMainBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESIMMainBaseViewController.m; sourceTree = "<group>"; };
 		EA0DF38F18B4AA4200DDFCE2 /* top_navigation_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_navigation_back@2x.png"; sourceTree = "<group>"; };
+		EA28791D18EBB0A700F5FBF4 /* TestScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScrollViewController.h; sourceTree = "<group>"; };
+		EA28791E18EBB0A700F5FBF4 /* TestScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScrollViewController.m; sourceTree = "<group>"; };
 		EA29318B18AA178A00C0AEBB /* ALTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTestTableViewController.h; sourceTree = "<group>"; };
 		EA29318C18AA178A00C0AEBB /* ALTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTestTableViewController.m; sourceTree = "<group>"; };
 		EA2C81A218B73A1400040D55 /* NTESIMTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NTESIMTabBarView.h; path = ALRefreshTable/NTESIMTabBarView.h; sourceTree = SOURCE_ROOT; };
 		EA2C81A318B73A1400040D55 /* NTESIMTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NTESIMTabBarView.m; path = ALRefreshTable/NTESIMTabBarView.m; sourceTree = SOURCE_ROOT; };
+		EA4BF30F18EBC45D00281B5D /* ALTableCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTableCycleScrollView.h; sourceTree = "<group>"; };
+		EA4BF31018EBC45D00281B5D /* ALTableCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTableCycleScrollView.m; sourceTree = "<group>"; };
 		EA7D7EFB18B5DB0200E3AC21 /* NTESIMHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESIMHomeViewController.h; sourceTree = "<group>"; };
 		EA7D7EFC18B5DB0200E3AC21 /* NTESIMHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESIMHomeViewController.m; sourceTree = "<group>"; };
 		EA7D7FA318B60A4600E3AC21 /* ALRefreshTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRefreshTableDelegate.h; sourceTree = "<group>"; };
@@ -243,6 +249,15 @@
 				EA0B909618AB54D700CC7026 /* grayArrow@2x.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		EA4BF30E18EBC16500281B5D /* ALTableCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				EA4BF30F18EBC45D00281B5D /* ALTableCycleScrollView.h */,
+				EA4BF31018EBC45D00281B5D /* ALTableCycleScrollView.m */,
+			);
+			path = ALTableCycleScrollView;
 			sourceTree = "<group>";
 		};
 		EA7D7F0118B60A4500E3AC21 /* class */ = {
@@ -1590,6 +1605,7 @@
 		EA887E1D1883D3F100675C24 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				EA4BF30E18EBC16500281B5D /* ALTableCycleScrollView */,
 				EA887E1E1883D40A00675C24 /* ALStockKLineView.h */,
 				EA887E1F1883D40A00675C24 /* ALStockKLineView.m */,
 			);
@@ -1611,6 +1627,8 @@
 				EAA70A3118A8C5B80054EFC1 /* baseControllers */,
 				EAA7F2B518C7069B004B57E0 /* TestController1.h */,
 				EAA7F2B618C7069B004B57E0 /* TestController1.m */,
+				EA28791D18EBB0A700F5FBF4 /* TestScrollViewController.h */,
+				EA28791E18EBB0A700F5FBF4 /* TestScrollViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1772,6 +1790,7 @@
 				EA29318D18AA178A00C0AEBB /* ALTestTableViewController.m in Sources */,
 				EA7D7FC018B60A4600E3AC21 /* ALStockKLineView.m in Sources */,
 				EA7D7EFD18B5DB0200E3AC21 /* NTESIMHomeViewController.m in Sources */,
+				EA28791F18EBB0A700F5FBF4 /* TestScrollViewController.m in Sources */,
 				EA7D7FBB18B60A4600E3AC21 /* ALRootTableViewController.m in Sources */,
 				EA0A74FC18BAED0E00E36A39 /* NTESIMCustomStocksViewController.m in Sources */,
 				EA7D7FB918B60A4600E3AC21 /* ALRefreshTableFooterView.m in Sources */,
@@ -1782,6 +1801,7 @@
 				EA07184E187FF8E7004DC993 /* main.m in Sources */,
 				EA887E081883C18900675C24 /* TestStockController.m in Sources */,
 				EAA7F2B718C7069B004B57E0 /* TestController1.m in Sources */,
+				EA4BF31118EBC45D00281B5D /* ALTableCycleScrollView.m in Sources */,
 				EAA70A2F18A8B2360054EFC1 /* ALMainController.m in Sources */,
 				EA7D7FBA18B60A4600E3AC21 /* ALRefreshTableHeaderView.m in Sources */,
 			);
