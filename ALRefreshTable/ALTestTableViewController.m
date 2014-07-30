@@ -32,6 +32,8 @@
     [self addRefreshHeader];
     [self.tableView reloadData];
     [self setRefreshFooter];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(test)];
 }
 
 - (void)viewWillLayoutSubviews{

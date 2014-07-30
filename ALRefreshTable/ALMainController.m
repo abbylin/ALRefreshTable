@@ -92,7 +92,7 @@
         self.navigationController.navigationBarHidden = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 3){
-        TestController1 *vc = [[TestController1 alloc] initWithStyle:UITableViewStylePlain];
+        TestController1 *vc = [[TestController1 alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 4){
         TestScrollViewController *vc = [[TestScrollViewController alloc] init];

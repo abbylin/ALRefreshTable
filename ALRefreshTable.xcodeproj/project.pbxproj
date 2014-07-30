@@ -35,6 +35,8 @@
 		EA7D7FBF18B60A4600E3AC21 /* ALStockSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D7FB318B60A4600E3AC21 /* ALStockSeries.m */; };
 		EA7D7FC018B60A4600E3AC21 /* ALStockKLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D7FB618B60A4600E3AC21 /* ALStockKLineView.m */; };
 		EA887E081883C18900675C24 /* TestStockController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA887E071883C18900675C24 /* TestStockController.m */; };
+		EAA1D1D0198908420079FD27 /* comment_support_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAA1D1CF198908420079FD27 /* comment_support_highlighted@2x.png */; };
+		EAA1D1D219890A860079FD27 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA1D1D119890A860079FD27 /* QuartzCore.framework */; };
 		EAA70A2F18A8B2360054EFC1 /* ALMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA70A2E18A8B2360054EFC1 /* ALMainController.m */; };
 		EAA7F2B718C7069B004B57E0 /* TestController1.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA7F2B618C7069B004B57E0 /* TestController1.m */; };
 /* End PBXBuildFile section */
@@ -111,6 +113,8 @@
 		EA887E1F1883D40A00675C24 /* ALStockKLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStockKLineView.m; sourceTree = "<group>"; };
 		EA887E221883E5A100675C24 /* ALStockSeries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALStockSeries.h; sourceTree = "<group>"; };
 		EA887E231883E5A100675C24 /* ALStockSeries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALStockSeries.m; sourceTree = "<group>"; };
+		EAA1D1CF198908420079FD27 /* comment_support_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment_support_highlighted@2x.png"; sourceTree = "<group>"; };
+		EAA1D1D119890A860079FD27 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EAA70A2D18A8B2360054EFC1 /* ALMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALMainController.h; sourceTree = "<group>"; };
 		EAA70A2E18A8B2360054EFC1 /* ALMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALMainController.m; sourceTree = "<group>"; };
 		EAA7F2B518C7069B004B57E0 /* TestController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController1.h; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAA1D1D219890A860079FD27 /* QuartzCore.framework in Frameworks */,
 				EA071844187FF8E7004DC993 /* CoreGraphics.framework in Frameworks */,
 				EA071846187FF8E7004DC993 /* UIKit.framework in Frameworks */,
 				EA071842187FF8E7004DC993 /* Foundation.framework in Frameworks */,
@@ -170,6 +175,7 @@
 		EA071840187FF8E7004DC993 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAA1D1D119890A860079FD27 /* QuartzCore.framework */,
 				EA071841187FF8E7004DC993 /* Foundation.framework */,
 				EA071843187FF8E7004DC993 /* CoreGraphics.framework */,
 				EA071845187FF8E7004DC993 /* UIKit.framework */,
@@ -246,6 +252,7 @@
 		EA0B909518AB54D700CC7026 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				EAA1D1CF198908420079FD27 /* comment_support_highlighted@2x.png */,
 				EA0B909618AB54D700CC7026 /* grayArrow@2x.png */,
 			);
 			path = images;
@@ -1734,6 +1741,7 @@
 			files = (
 				EA0B909718AB54D700CC7026 /* grayArrow@2x.png in Resources */,
 				EA0DF39018B4AA4200DDFCE2 /* top_navigation_back@2x.png in Resources */,
+				EAA1D1D0198908420079FD27 /* comment_support_highlighted@2x.png in Resources */,
 				EA07184C187FF8E7004DC993 /* InfoPlist.strings in Resources */,
 				EA071854187FF8E7004DC993 /* Images.xcassets in Resources */,
 			);
