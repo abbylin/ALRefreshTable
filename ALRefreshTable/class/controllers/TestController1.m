@@ -10,6 +10,7 @@
 
 @interface TestController1 (){
     UIImageView *icon;
+    UIView *testView1;
 }
 
 @property (nonatomic, strong)NSArray *dataArray;
@@ -35,12 +36,53 @@
     button.layer.borderWidth = 1.0;
     button.frame = CGRectMake(100.0, 150, 50.0, 50.0);
     [self.view addSubview:button];
-    [button addTarget:self action:@selector(showAnimation:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(testAnimation) forControlEvents:UIControlEventTouchUpInside];
     
-    icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"comment_support_highlighted.png"]];
-    icon.frame = CGRectMake(100.0, 300.0, icon.image.size.width, icon.image.size.height);
-    [self.view addSubview:icon];
+//    icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"comment_support_highlighted.png"]];
+//    icon.frame = CGRectMake(100.0, 300.0, icon.image.size.width, icon.image.size.height);
+//    [self.view addSubview:icon];
     
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 248, self.view.bounds.size.width, 2)];
+    line.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:line];
+    
+    testView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 250, 30, 30)];
+    testView1.layer.borderColor = [UIColor redColor].CGColor;
+    testView1.layer.borderWidth = 1.0;
+    testView1.frame = CGRectMake(0, 250, 30, 30);
+    [self.view addSubview:testView1];
+    
+    [self performSelector:@selector(testAnimation) withObject:nil afterDelay:1.0];
+}
+
+- (void)testAnimation{
+    testView1.layer.anchorPoint = CGPointMake(1.0, 1.0);
+    testView1.layer.position = CGPointMake(testView1.layer.position.x+testView1.layer.bounds.size.width/2, testView1.layer.position.y + testView1.layer.bounds.size.height/2);
+    NSLog(@"position is %@ first", NSStringFromCGPoint(testView1.layer.position));
+    testView1.layer.position = CGPointMake(testView1.layer.position.x, testView1.layer.position.y + testView1.layer.bounds.size.height);
+    CAKeyframeAnimation *rotate = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotate.delegate = self;
+    rotate.values = @[@(DegreesToRadians(0)), @(DegreesToRadians(90))];
+    rotate.duration = 2.0;
+    [testView1.layer addAnimation:rotate forKey:@"rotationAnim"];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    if (flag) {
+        [testView1.layer removeAllAnimations];
+        testView1.layer.anchorPoint = CGPointMake(0.5, 0.5);
+        testView1.frame = CGRectMake(0, 250, 30, 30);
+        NSLog(@"position is %@ after animation", NSStringFromCGPoint(testView1.layer.position));
+    }
+}
+
+CGFloat DegreesToRadians(CGFloat degrees) {
+    return degrees * M_PI / 180;
+}
+
+- (void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    NSLog(@"position is %@", NSStringFromCGPoint(testView1.layer.position));
 }
 
 - (void)showAnimation:(id)sender{
@@ -115,14 +157,14 @@
     
 }
 
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
-    if (flag) {
-        [icon.layer removeAllAnimations];
-        icon.layer.anchorPoint = CGPointMake(0.5, 0.5);
-        icon.layer.transform = CATransform3DIdentity;
-        icon.layer.position = CGPointMake(icon.layer.position.x, icon.layer.position.y-20.0+icon.layer.bounds.size.height/2);
-    }
-}
+//- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+//    if (flag) {
+//        [icon.layer removeAllAnimations];
+//        icon.layer.anchorPoint = CGPointMake(0.5, 0.5);
+//        icon.layer.transform = CATransform3DIdentity;
+//        icon.layer.position = CGPointMake(icon.layer.position.x, icon.layer.position.y-20.0+icon.layer.bounds.size.height/2);
+//    }
+//}
 
 - (void)didReceiveMemoryWarning
 {
