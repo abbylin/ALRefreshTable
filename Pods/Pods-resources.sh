@@ -8,12 +8,12 @@ install_resource()
 {
   case $1 in
     *.storyboard)
-      echo "ibtool --errors --warnings --notices --output-format human-readable-text --compile ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$1\" .storyboard`.storyboardc ${PODS_ROOT}/$1 --sdk ${SDKROOT}"
-      ibtool --errors --warnings --notices --output-format human-readable-text --compile "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$1\" .storyboard`.storyboardc" "${PODS_ROOT}/$1" --sdk "${SDKROOT}"
+      echo "ibtool --reference-external-strings-file --errors --warnings --notices --output-format human-readable-text --compile ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$1\" .storyboard`.storyboardc ${PODS_ROOT}/$1 --sdk ${SDKROOT}"
+      ibtool --reference-external-strings-file --errors --warnings --notices --output-format human-readable-text --compile "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$1\" .storyboard`.storyboardc" "${PODS_ROOT}/$1" --sdk "${SDKROOT}"
       ;;
     *.xib)
-        echo "ibtool --errors --warnings --notices --output-format human-readable-text --compile ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$1\" .xib`.nib ${PODS_ROOT}/$1 --sdk ${SDKROOT}"
-      ibtool --errors --warnings --notices --output-format human-readable-text --compile "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$1\" .xib`.nib" "${PODS_ROOT}/$1" --sdk "${SDKROOT}"
+        echo "ibtool --reference-external-strings-file --errors --warnings --notices --output-format human-readable-text --compile ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$1\" .xib`.nib ${PODS_ROOT}/$1 --sdk ${SDKROOT}"
+      ibtool --reference-external-strings-file --errors --warnings --notices --output-format human-readable-text --compile "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$1\" .xib`.nib" "${PODS_ROOT}/$1" --sdk "${SDKROOT}"
       ;;
     *.framework)
       echo "mkdir -p ${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
@@ -41,6 +41,41 @@ install_resource()
       ;;
   esac
 }
+install_resource "SAMAddressBar/Resources/SAMAddressBar-background.png"
+install_resource "SAMAddressBar/Resources/SAMAddressBar-background@2x.png"
+install_resource "SAMAddressBar/Resources/SAMAddressBar-reload.png"
+install_resource "SAMAddressBar/Resources/SAMAddressBar-reload@2x.png"
+install_resource "SAMAddressBar/Resources/SAMAddressBar-stop.png"
+install_resource "SAMAddressBar/Resources/SAMAddressBar-stop@2x.png"
+install_resource "SAMCategories/SAMCategories/SAMCategories.bundle"
+install_resource "SAMHUDView/Resources/SAMHUDView-Check.png"
+install_resource "SAMHUDView/Resources/SAMHUDView-Check@2x.png"
+install_resource "SAMHUDView/Resources/SAMHUDView-X.png"
+install_resource "SAMHUDView/Resources/SAMHUDView-X@2x.png"
+install_resource "SAMWebView/Resources/SAMWebView-action-button-mini.png"
+install_resource "SAMWebView/Resources/SAMWebView-action-button-mini@2x.png"
+install_resource "SAMWebView/Resources/SAMWebView-action-button.png"
+install_resource "SAMWebView/Resources/SAMWebView-action-button@2x.png"
+install_resource "SAMWebView/Resources/SAMWebView-back-button-mini.png"
+install_resource "SAMWebView/Resources/SAMWebView-back-button-mini@2x.png"
+install_resource "SAMWebView/Resources/SAMWebView-back-button.png"
+install_resource "SAMWebView/Resources/SAMWebView-back-button@2x.png"
+install_resource "SAMWebView/Resources/SAMWebView-forward-button-mini.png"
+install_resource "SAMWebView/Resources/SAMWebView-forward-button-mini@2x.png"
+install_resource "SAMWebView/Resources/SAMWebView-forward-button.png"
+install_resource "SAMWebView/Resources/SAMWebView-forward-button@2x.png"
+install_resource "SAMWebView/Resources/SAMWebView-reload-button-mini.png"
+install_resource "SAMWebView/Resources/SAMWebView-reload-button-mini@2x.png"
+install_resource "SAMWebView/Resources/SAMWebView-reload-button.png"
+install_resource "SAMWebView/Resources/SAMWebView-reload-button@2x.png"
+install_resource "SAMWebView/Resources/SAMWebView-safari-button-mini.png"
+install_resource "SAMWebView/Resources/SAMWebView-safari-button-mini@2x.png"
+install_resource "SAMWebView/Resources/SAMWebView-safari-button.png"
+install_resource "SAMWebView/Resources/SAMWebView-safari-button@2x.png"
+install_resource "SAMWebView/Resources/SAMWebView-stop-button-mini.png"
+install_resource "SAMWebView/Resources/SAMWebView-stop-button-mini@2x.png"
+install_resource "SAMWebView/Resources/SAMWebView-stop-button.png"
+install_resource "SAMWebView/Resources/SAMWebView-stop-button@2x.png"
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]]; then
