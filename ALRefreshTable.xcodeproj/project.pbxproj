@@ -24,6 +24,8 @@
 		EA0DF39018B4AA4200DDFCE2 /* top_navigation_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA0DF38F18B4AA4200DDFCE2 /* top_navigation_back@2x.png */; };
 		EA28791F18EBB0A700F5FBF4 /* TestScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA28791E18EBB0A700F5FBF4 /* TestScrollViewController.m */; };
 		EA29318D18AA178A00C0AEBB /* ALTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA29318C18AA178A00C0AEBB /* ALTestTableViewController.m */; };
+		EA39146A19AF06F3000D02C7 /* PopTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA39146919AF06F3000D02C7 /* PopTestViewController.m */; };
+		EA39146D19AF099E000D02C7 /* CoreTextTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA39146C19AF099E000D02C7 /* CoreTextTestCell.m */; };
 		EA4BF31118EBC45D00281B5D /* ALTableCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4BF31018EBC45D00281B5D /* ALTableCycleScrollView.m */; };
 		EA556E951994CBA700FC07FF /* ALRefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0B909218AB4CB300CC7026 /* ALRefreshTableHeaderView.m */; };
 		EA556E961994CBA700FC07FF /* ALRootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAE2BC2A18ACA9780016D4E4 /* ALRootTableViewController.m */; };
@@ -74,6 +76,10 @@
 		EA28791E18EBB0A700F5FBF4 /* TestScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScrollViewController.m; sourceTree = "<group>"; };
 		EA29318B18AA178A00C0AEBB /* ALTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTestTableViewController.h; sourceTree = "<group>"; };
 		EA29318C18AA178A00C0AEBB /* ALTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTestTableViewController.m; sourceTree = "<group>"; };
+		EA39146819AF06F3000D02C7 /* PopTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopTestViewController.h; sourceTree = "<group>"; };
+		EA39146919AF06F3000D02C7 /* PopTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopTestViewController.m; sourceTree = "<group>"; };
+		EA39146B19AF099E000D02C7 /* CoreTextTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextTestCell.h; sourceTree = "<group>"; };
+		EA39146C19AF099E000D02C7 /* CoreTextTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextTestCell.m; sourceTree = "<group>"; };
 		EA4BF30F18EBC45D00281B5D /* ALTableCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTableCycleScrollView.h; sourceTree = "<group>"; };
 		EA4BF31018EBC45D00281B5D /* ALTableCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTableCycleScrollView.m; sourceTree = "<group>"; };
 		EA556E941994CAE600FC07FF /* ALTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTools.h; sourceTree = "<group>"; };
@@ -255,6 +261,8 @@
 				EA4BF30E18EBC16500281B5D /* ALTableCycleScrollView */,
 				EA887E1E1883D40A00675C24 /* ALStockKLineView.h */,
 				EA887E1F1883D40A00675C24 /* ALStockKLineView.m */,
+				EA39146B19AF099E000D02C7 /* CoreTextTestCell.h */,
+				EA39146C19AF099E000D02C7 /* CoreTextTestCell.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -276,6 +284,8 @@
 				EAA7F2B618C7069B004B57E0 /* TestController1.m */,
 				EA28791D18EBB0A700F5FBF4 /* TestScrollViewController.h */,
 				EA28791E18EBB0A700F5FBF4 /* TestScrollViewController.m */,
+				EA39146819AF06F3000D02C7 /* PopTestViewController.h */,
+				EA39146919AF06F3000D02C7 /* PopTestViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -445,9 +455,11 @@
 				EA071852187FF8E7004DC993 /* AppDelegate.m in Sources */,
 				EA07184E187FF8E7004DC993 /* main.m in Sources */,
 				EA887E081883C18900675C24 /* TestStockController.m in Sources */,
+				EA39146A19AF06F3000D02C7 /* PopTestViewController.m in Sources */,
 				EAA7F2B718C7069B004B57E0 /* TestController1.m in Sources */,
 				EA4BF31118EBC45D00281B5D /* ALTableCycleScrollView.m in Sources */,
 				EAA70A2F18A8B2360054EFC1 /* ALMainController.m in Sources */,
+				EA39146D19AF099E000D02C7 /* CoreTextTestCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

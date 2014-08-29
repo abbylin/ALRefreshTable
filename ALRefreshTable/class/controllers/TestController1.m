@@ -76,10 +76,6 @@
     }
 }
 
-CGFloat DegreesToRadians(CGFloat degrees) {
-    return degrees * M_PI / 180;
-}
-
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
     NSLog(@"position is %@", NSStringFromCGPoint(testView1.layer.position));

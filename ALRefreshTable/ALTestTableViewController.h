@@ -8,6 +8,6 @@
 
 #import "ALRootTableViewController.h"
 
-@interface ALTestTableViewController : ALRootTableViewController
+@interface ALTestTableViewController : UITableViewController
 
 @end

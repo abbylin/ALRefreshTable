@@ -29,10 +29,6 @@
     self.dataArray = [[NSMutableArray alloc] initWithCapacity:3];
     [self.dataArray addObjectsFromArray:@[@"label1", @"label2", @"label3", @"label4", @"label5", @"label6", @"label7", @"label8"]];
     
-    [self addRefreshHeader];
-    [self.tableView reloadData];
-    [self setRefreshFooter];
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(test)];
 }
 
@@ -67,39 +63,39 @@
     return cell;
 }
 
-#pragma mark -
-#pragma mark - testcode
-- (void)beginToReloadData:(ALRefreshPos)aRefreshPos{
-    [super beginToReloadData:aRefreshPos];
-    
-    if (aRefreshPos == ALRefreshHeader) {
-        // reload data
-        [self performSelector:@selector(testFinish) withObject:nil afterDelay:0.5];
-    }else{
-        // load more data
-        [self performSelector:@selector(testLoadMore) withObject:nil afterDelay:0.5];
-    }
-}
-
-- (void)testLoadMore{
-    int i = self.dataArray ? self.dataArray.count : 0;
-    for (int k = 0; k < 3; k++) {
-        [self.dataArray addObject:[NSString stringWithFormat:@"label%d", i+1]];
-        i ++;
-    }
-    
-    [self.tableView reloadData];
-    [self finishReloadingDataComplete:^{
-        if (self.refreshFooterView) {
-            [self setRefreshFooter];
-        }
-    }];
-}
-
-- (void)testFinish{
-    [self finishReloadingDataComplete:^{
-        
-    }];
-}
+//#pragma mark -
+//#pragma mark - testcode
+//- (void)beginToReloadData:(ALRefreshPos)aRefreshPos{
+//    [super beginToReloadData:aRefreshPos];
+//    
+//    if (aRefreshPos == ALRefreshHeader) {
+//        // reload data
+//        [self performSelector:@selector(testFinish) withObject:nil afterDelay:0.5];
+//    }else{
+//        // load more data
+//        [self performSelector:@selector(testLoadMore) withObject:nil afterDelay:0.5];
+//    }
+//}
+//
+//- (void)testLoadMore{
+//    int i = self.dataArray ? self.dataArray.count : 0;
+//    for (int k = 0; k < 3; k++) {
+//        [self.dataArray addObject:[NSString stringWithFormat:@"label%d", i+1]];
+//        i ++;
+//    }
+//    
+//    [self.tableView reloadData];
+//    [self finishReloadingDataComplete:^{
+//        if (self.refreshFooterView) {
+//            [self setRefreshFooter];
+//        }
+//    }];
+//}
+//
+//- (void)testFinish{
+//    [self finishReloadingDataComplete:^{
+//        
+//    }];
+//}
 
 @end

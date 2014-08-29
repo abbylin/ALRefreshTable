@@ -11,6 +11,7 @@
 #import "ALTestTableViewController.h"
 #import "TestController1.h"
 #import "TestScrollViewController.h"
+#import "PopTestViewController.h"
 
 @interface ALMainController ()
 
@@ -87,9 +88,8 @@
         ALTestTableViewController *vc = [[ALTestTableViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 2){
-//        NTESIMHomeViewController *vc = [[NTESIMHomeViewController alloc] init];
-//        self.navigationController.navigationBarHidden = YES;
-//        [self.navigationController pushViewController:vc animated:YES];
+        PopTestViewController *vc = [[PopTestViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 3){
         TestController1 *vc = [[TestController1 alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
