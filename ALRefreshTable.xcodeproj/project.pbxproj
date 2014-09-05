@@ -37,6 +37,7 @@
 		EAA1D1D219890A860079FD27 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA1D1D119890A860079FD27 /* QuartzCore.framework */; };
 		EAA70A2F18A8B2360054EFC1 /* ALMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA70A2E18A8B2360054EFC1 /* ALMainController.m */; };
 		EAA7F2B718C7069B004B57E0 /* TestController1.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA7F2B618C7069B004B57E0 /* TestController1.m */; };
+		EAEC0FF419B5660500388A2B /* ALBaseAnimationTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEC0FF319B5660500388A2B /* ALBaseAnimationTestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		EABDA3BB18B2FA6500428061 /* ALRefreshTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRefreshTableFooterView.m; sourceTree = "<group>"; };
 		EAE2BC2918ACA9780016D4E4 /* ALRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRootTableViewController.h; sourceTree = "<group>"; };
 		EAE2BC2A18ACA9780016D4E4 /* ALRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRootTableViewController.m; sourceTree = "<group>"; };
+		EAEC0FF219B5660500388A2B /* ALBaseAnimationTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALBaseAnimationTestViewController.h; sourceTree = "<group>"; };
+		EAEC0FF319B5660500388A2B /* ALBaseAnimationTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALBaseAnimationTestViewController.m; sourceTree = "<group>"; };
 		EAEEBE1918B7308B001CDD6B /* ALRefreshTable-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALRefreshTable-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -286,6 +289,8 @@
 				EA28791E18EBB0A700F5FBF4 /* TestScrollViewController.m */,
 				EA39146819AF06F3000D02C7 /* PopTestViewController.h */,
 				EA39146919AF06F3000D02C7 /* PopTestViewController.m */,
+				EAEC0FF219B5660500388A2B /* ALBaseAnimationTestViewController.h */,
+				EAEC0FF319B5660500388A2B /* ALBaseAnimationTestViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -458,6 +463,7 @@
 				EA39146A19AF06F3000D02C7 /* PopTestViewController.m in Sources */,
 				EAA7F2B718C7069B004B57E0 /* TestController1.m in Sources */,
 				EA4BF31118EBC45D00281B5D /* ALTableCycleScrollView.m in Sources */,
+				EAEC0FF419B5660500388A2B /* ALBaseAnimationTestViewController.m in Sources */,
 				EAA70A2F18A8B2360054EFC1 /* ALMainController.m in Sources */,
 				EA39146D19AF099E000D02C7 /* CoreTextTestCell.m in Sources */,
 			);

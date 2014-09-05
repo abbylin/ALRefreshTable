@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PopTestViewController : UIViewController
+@interface PopTestViewController : UITableViewController
 
 @end
