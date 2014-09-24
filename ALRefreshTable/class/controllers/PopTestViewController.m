@@ -8,6 +8,7 @@
 
 #import "PopTestViewController.h"
 #import "ALBaseAnimationTestViewController.h"
+#import "CoreTextTestCell.h"
 
 @interface PopTestViewController (){
     NSArray *_dataArray;
@@ -21,7 +22,7 @@
     [super viewDidLoad];
     
     _dataArray = @[@"text animation"];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerClass:[CoreTextTestCell class] forCellReuseIdentifier:@"cell"];
 }
 
 #pragma mark -
@@ -35,9 +36,9 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    CoreTextTestCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
-    cell.textLabel.text = _dataArray[indexPath.row];
+    //cell.textLabel.text = _dataArray[indexPath.row];
     
     return cell;
 }

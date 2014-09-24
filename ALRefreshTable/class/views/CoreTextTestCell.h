@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@interface ALMixTextLabel : UIView
+
+
+@end
+
 @interface CoreTextTestCell : UITableViewCell
 
 - (void)setInfo:(NSDictionary*)dict;

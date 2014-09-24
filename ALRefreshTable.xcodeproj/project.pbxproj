@@ -37,6 +37,7 @@
 		EAA1D1D219890A860079FD27 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAA1D1D119890A860079FD27 /* QuartzCore.framework */; };
 		EAA70A2F18A8B2360054EFC1 /* ALMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA70A2E18A8B2360054EFC1 /* ALMainController.m */; };
 		EAA7F2B718C7069B004B57E0 /* TestController1.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA7F2B618C7069B004B57E0 /* TestController1.m */; };
+		EABAC1A919C69AE80022C89A /* bobo_chat_flower@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EABAC1A819C69AE80022C89A /* bobo_chat_flower@2x.png */; };
 		EAEC0FF419B5660500388A2B /* ALBaseAnimationTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEC0FF319B5660500388A2B /* ALBaseAnimationTestViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		EAA70A2E18A8B2360054EFC1 /* ALMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALMainController.m; sourceTree = "<group>"; };
 		EAA7F2B518C7069B004B57E0 /* TestController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController1.h; sourceTree = "<group>"; };
 		EAA7F2B618C7069B004B57E0 /* TestController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestController1.m; sourceTree = "<group>"; };
+		EABAC1A819C69AE80022C89A /* bobo_chat_flower@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bobo_chat_flower@2x.png"; sourceTree = "<group>"; };
 		EABDA3BA18B2FA6500428061 /* ALRefreshTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRefreshTableFooterView.h; sourceTree = "<group>"; };
 		EABDA3BB18B2FA6500428061 /* ALRefreshTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRefreshTableFooterView.m; sourceTree = "<group>"; };
 		EAE2BC2918ACA9780016D4E4 /* ALRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRootTableViewController.h; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		EA0B909418AB54D700CC7026 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				EABAC1A819C69AE80022C89A /* bobo_chat_flower@2x.png */,
 				EA0B909518AB54D700CC7026 /* images */,
 			);
 			path = sources;
@@ -399,6 +402,7 @@
 				EAA1D1D0198908420079FD27 /* comment_support_highlighted@2x.png in Resources */,
 				EA07184C187FF8E7004DC993 /* InfoPlist.strings in Resources */,
 				EA071854187FF8E7004DC993 /* Images.xcassets in Resources */,
+				EABAC1A919C69AE80022C89A /* bobo_chat_flower@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
